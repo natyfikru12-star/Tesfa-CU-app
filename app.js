@@ -1,4 +1,4 @@
-const API_BASE = "https://fastapi-example-lcbc.onrender.com";
+const API_BASE = "https://tesfa-cu-app.onrender.com";
 const statusEl = document.getElementById("status");
 async function checkBackend(){
   statusEl.className="";

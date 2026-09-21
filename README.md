@@ -3,7 +3,7 @@
 Frontend starter for Tesfa Credit Union.
 
 Backend URL configured in `app.js`:
-https://fastapi-example-lcbc.onrender.com
+https://tesfa-cu-app.onrender.com
 
 ## Upload to GitHub
 Upload all files in this folder to the frontend repository and commit them to `main`.
