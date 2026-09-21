@@ -1,0 +1,8 @@
+{
+  "name":"Tesfa Credit Union",
+  "short_name":"Tesfa",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#f3f7f8",
+  "theme_color":"#155e75"
+}
