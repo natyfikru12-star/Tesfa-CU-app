@@ -1,29 +1,48 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#155e75">
-  <title>Tesfa Credit Union</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header><h1>Tesfa Credit Union</h1><p>Member Services</p></header>
-  <main>
-    <section class="card">
-      <h2>Tesfa Online</h2>
-      <p id="status">Checking connection…</p>
-      <button id="check">Check Backend Connection</button>
-    </section>
-    <section class="grid">
-      <div class="card"><h3>Accounts</h3><p>View member account information.</p></div>
-      <div class="card"><h3>Loans</h3><p>Manage loan services.</p></div>
-      <div class="card"><h3>Transactions</h3><p>Review transaction activity.</p></div>
-      <div class="card"><h3>Branches</h3><p>Support for multiple branches.</p></div>
-    </section>
-  </main>
-  <footer>Tesfa Credit Union</footer>
-  <script src="app.js"></script>
-</body>
-</html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#155e75"><title>Tesfa Credit Union</title>
+<link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css">
+</head><body>
+<header><div><h1>Tesfa Credit Union</h1><p>Secure Member Services Dashboard</p></div>
+<span id="apiBadge" class="badge">Connecting…</span></header>
+<main>
+<section id="loginCard" class="card auth">
+<h2>Staff Sign In</h2><p>Sign in with your Tesfa staff account.</p>
+<form id="loginForm"><label>Username<input id="username" autocomplete="username" required></label>
+<label>Password<input id="password" type="password" autocomplete="current-password" required></label>
+<button type="submit">Sign in</button><p id="loginMessage" class="message"></p></form></section>
+
+<section id="app" class="hidden">
+<div class="toolbar card"><div><strong id="welcome">Tesfa Dashboard</strong><div id="roleText" class="muted"></div></div>
+<div><button id="refresh">Refresh</button> <button id="logout" class="secondary">Sign out</button></div></div>
+<div class="stats">
+<div class="card"><span>Members</span><strong id="memberCount">—</strong></div>
+<div class="card"><span>Loans</span><strong id="loanCount">—</strong></div>
+<div class="card"><span>Pending loans</span><strong id="pendingCount">—</strong></div>
+<div class="card"><span>Backend</span><strong id="backendState">Checking</strong></div>
+</div>
+<nav class="tabs">
+<button data-tab="members" class="active">Members</button><button data-tab="accounts">Accounts</button>
+<button data-tab="loans">Loans</button><button data-tab="transactions">Transactions</button>
+<button data-tab="branches">Branches</button>
+</nav>
+
+<section id="members" class="panel card">
+<div class="panelhead"><h2>Members</h2><div><input id="memberSearch" placeholder="Search members"> <button id="searchMembers">Search</button></div></div>
+<div class="tablewrap"><table><thead><tr><th>ID</th><th>Member #</th><th>Name</th><th>Phone</th></tr></thead><tbody id="memberRows"></tbody></table></div>
+</section>
+
+<section id="accounts" class="panel card hidden"><h2>Account Lookup & Deposit</h2>
+<div class="formgrid"><label>Account ID<input id="accountId" type="number" min="1"></label><button id="loadAccount">Load account</button></div>
+<pre id="accountResult" class="result">Enter an account ID.</pre>
+<h3>Deposit</h3><div class="formgrid"><label>Amount<input id="depositAmount" type="number" min="0.01" step="0.01"></label>
+<label>Description<input id="depositDescription" placeholder="Cash deposit"></label><button id="deposit">Post deposit</button></div></section>
+
+<section id="loans" class="panel card hidden"><div class="panelhead"><h2>Loans</h2><button id="loadLoans">Reload loans</button></div>
+<div class="tablewrap"><table><thead><tr><th>ID</th><th>Loan #</th><th>Member</th><th>Principal</th><th>Outstanding</th><th>Status</th><th></th></tr></thead><tbody id="loanRows"></tbody></table></div></section>
+
+<section id="transactions" class="panel card hidden"><h2>Transactions</h2><p>The current backend supports deposits and loan payments. Transaction-history listing is not yet exposed by the API, so this screen intentionally does not invent records.</p></section>
+<section id="branches" class="panel card hidden"><h2>Branches</h2><p>The dashboard is ready for branch-aware operation, but the current backend schema does not expose branch endpoints yet. Add branch IDs to users, members, accounts and transactions before using this for multiple live branches.</p></section>
+</section>
+</main><footer>Tesfa Credit Union • Installable PWA</footer><script src="app.js"></script></body></html>
