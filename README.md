@@ -1,12 +1,21 @@
-# Tesfa Frontend
+# Tesfa Frontend — Fixed Build
 
-Frontend starter for Tesfa Credit Union.
+Backend URL: https://fastapi-example-lcbc.onrender.com
 
-Backend URL configured in `app.js`:
-https://tesfa-cu-app.onrender.com
+## Deploy
+Upload these files to the ROOT of the frontend GitHub repository and commit them to `main`:
+- index.html
+- style.css
+- app.js
+- manifest.json
+- sw.js
 
-## Upload to GitHub
-Upload all files in this folder to the frontend repository and commit them to `main`.
+The service worker cache is now `tesfa-v2` and removes older caches so an old page is less likely to remain stuck after deployment.
 
-## Important
-This is a starter frontend, not a production-ready banking application. Before handling real member or financial data, add authentication, authorization, secure API endpoints, validation, audit logging, HTTPS/security controls, and appropriate testing/compliance review.
+## After deployment
+1. Wait for the frontend host to finish deploying.
+2. Open the live frontend URL and refresh it.
+3. If an old installed version remains on Android, close the installed app and reopen it after the new deployment.
+
+## Security
+This remains a starter frontend. Do not use it for real member or financial data until authentication, authorization, validation, audit logging, secure APIs, and appropriate security/compliance controls are implemented.
