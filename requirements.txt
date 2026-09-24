@@ -1,1 +1,2 @@
-fastapi[all]psycopg[binary]
+fastapi[all]
+psycopg[binary]
